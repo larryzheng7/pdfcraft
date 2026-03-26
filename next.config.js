@@ -124,18 +124,7 @@ const nextConfig = {
           { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
         ],
       },
-      {
-        // LibreOffice WASM .data.gz — serve as application/octet-stream with gzip Content-Encoding
-        source: '/libreoffice-wasm/soffice.data.gz',
-        headers: [
-          { key: 'Content-Type', value: 'application/octet-stream' },
-          { key: 'Content-Encoding', value: 'gzip' },
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-          { key: 'Cross-Origin-Embedder-Policy', value: 'require-corp' },
-          { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
-          { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
-        ],
-      },
+      
       {
         // LibreOffice WASM Worker - needs COEP to spawn workers with SharedArrayBuffer access
         source: '/libreoffice-wasm/browser.worker.global.js',
