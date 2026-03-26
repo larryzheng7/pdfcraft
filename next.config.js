@@ -111,20 +111,7 @@ const nextConfig = {
   // For static export, configure headers in your hosting platform
   async headers() {
     return [
-      {
-        // LibreOffice WASM .wasm.gz — serve as application/wasm with gzip Content-Encoding
-        // Same approach as BentoPDF's nginx config so browser decompresses transparently
-        source: '/libreoffice-wasm/soffice.wasm.gz',
-        headers: [
-          { key: 'Content-Type', value: 'application/wasm' },
-          { key: 'Content-Encoding', value: 'gzip' },
-          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
-          { key: 'Cross-Origin-Embedder-Policy', value: 'require-corp' },
-          { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
-          { key: 'Cross-Origin-Resource-Policy', value: 'cross-origin' },
-        ],
-      },
-      
+
       {
         // LibreOffice WASM Worker - needs COEP to spawn workers with SharedArrayBuffer access
         source: '/libreoffice-wasm/browser.worker.global.js',
