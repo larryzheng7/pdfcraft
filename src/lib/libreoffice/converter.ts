@@ -115,7 +115,7 @@ export class LibreOfficeConverter {
 
             this.converter = new WorkerBrowserConverter({
                 sofficeJs: `${this.basePath}soffice.js?v=${ASSET_VERSION}`,
-                sofficeWasm: `${this.basePath}${SOFFICE_WASM_FILE}?v=${ASSET_VERSION}`,
+                sofficeWasm: 'https://pub-4a06b840d05342f9a561639bce4b1719.r2.dev/soffice.wasm.gz',
                 sofficeData: 'https://pub-4a06b840d05342f9a561639bce4b1719.r2.dev/soffice.data.gz',
                 sofficeWorkerJs: `${this.basePath}soffice.worker.js?v=${ASSET_VERSION}`,
                 browserWorkerJs: `${this.basePath}browser.worker.global.js?v=${ASSET_VERSION}`,
@@ -195,7 +195,6 @@ export class LibreOfficeConverter {
 
         // 3. Check file connectivity (parallel for speed) & accumulate total size
         const files = [
-            SOFFICE_WASM_FILE,
             'soffice.js',
             'soffice.worker.js',
             'browser.worker.global.js',
